@@ -1,9 +1,9 @@
 example_id                                                              | status  | run_time        |
 ----------------------------------------------------------------------- | ------- | --------------- |
-./spec/features/authentication/user_can_create_new_account_spec.rb[1:1] | failed  | 0.47153 seconds |
-./spec/features/authentication/user_can_create_new_account_spec.rb[1:2] | failed  | 0.45869 seconds |
-./spec/features/authentication/user_can_log_in_spec.rb[1:1]             | failed  | 0.52238 seconds |
-./spec/features/authentication/user_can_log_in_spec.rb[1:2]             | failed  | 0.50754 seconds |
-./spec/features/authentication/user_can_log_in_spec.rb[1:3]             | failed  | 0.54613 seconds |
-./spec/features/authentication/user_can_log_in_spec.rb[1:4]             | failed  | 0.81853 seconds |
+./spec/features/authentication/user_can_create_new_account_spec.rb[1:1] | failed  | 0.32668 seconds |
+./spec/features/authentication/user_can_create_new_account_spec.rb[1:2] | failed  | 0.14309 seconds |
+./spec/features/authentication/user_can_log_in_spec.rb[1:1]             | failed  | 0.17788 seconds |
+./spec/features/authentication/user_can_log_in_spec.rb[1:2]             | failed  | 0.13572 seconds |
+./spec/features/authentication/user_can_log_in_spec.rb[1:3]             | failed  | 0.52373 seconds |
+./spec/features/authentication/user_can_log_in_spec.rb[1:4]             | failed  | 0.10817 seconds |
 ./spec/models/user_spec.rb[1:1]                                         | pending | 0.00002 seconds |

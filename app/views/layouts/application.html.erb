@@ -11,8 +11,13 @@
   <body>
 
     <nav>
+      <%= link_to "Login", session_path %>
       <%= link_to "Register", new_session_path %>
     </nav>
+
+    <% flash.each do |message| %>
+      <div class="flashmessage"><%= message %></div>
+    <% end %>
 
     <%= yield %>
 
