@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.feature "user can log in" do
   scenario "with built in credentials" do
-    user = create(:user)
+    user = User.create(username: "Liamthegreat",
+                       password: "LOGIN",
+                       first_name: "Greatest",
+                       last_name: "Ever",
+                       role: 0)
     visit "/"
     click_on "Login"
     fill_in "username", with: user.username
@@ -15,7 +19,11 @@ RSpec.feature "user can log in" do
   end
 
   xscenario "with facebook" do
-    user = create(:user)
+    user = User.create(username: "Liamthegreat",
+                       password: "LOGIN",
+                       first_name: "Greatest",
+                       last_name: "Ever",
+                       role: 0)
     visit "/"
     click_on "Login"
     click_on "Login With Facebook"
