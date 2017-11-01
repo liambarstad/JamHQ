@@ -15,8 +15,8 @@
       <%= link_to "Register", new_session_path %>
     </nav>
 
-    <% flash.each do |message| %>
-      <div class="flashmessage"><%= message %></div>
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "flash #{key}" %>
     <% end %>
 
     <%= yield %>

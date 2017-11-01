@@ -46,7 +46,7 @@ RSpec.feature "user can log in" do
     click_on "Login"
     fill_in "user[username]", with: user.username
     fill_in "user[password]", with: "notthepassword"
-    click_on "Log in"
+    click_on "Login"
 
     expect(current_path).to eq(session_path)
     expect(page).to have_content("Incorrect Password")
@@ -59,7 +59,7 @@ RSpec.feature "user can log in" do
                        last_name: "Ever",
                        role: 0)
     visit "/"
-    click_on "Log in"
+    click_on "Login"
     fill_in "user[username]", with: "Liamthemediocre"
     fill_in "user[password]", with: "LOGIN"
     click_on "Login"

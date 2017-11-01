@@ -11,10 +11,10 @@ class SessionController < ApplicationController
       redirect_to root_path
     elsif user
       flash[:notice] = "Incorrect Password"
-      redirect_to session_show_path
+      redirect_to session_path
     else
       flash[:notice] = "User Not Found"
-      redirect_to session_show_path
+      redirect_to session_path
     end
   end
 
