@@ -9,9 +9,8 @@ RSpec.feature "user can log in" do
                        role: 0)
     visit "/"
     click_on "Login"
-    save_and_open_page
-    fill_in "username", with: user.username
-    fill_in "password", with: "LOGIN"
+    fill_in "user[username]", with: user.username
+    fill_in "user[password]", with: "LOGIN"
     click_on "Login"
 
     expect(current_path).to eq("/")
@@ -30,7 +29,7 @@ RSpec.feature "user can log in" do
     click_on "Login With Facebook"
     fill_in "username", with: user.username
     fill_in "password", with: "LOGIN"
-    click_on "Login"
+    click_on "Log in"
 
     expect(current_path).to eq("/")
     expect(page).to_not have_content("Login")
