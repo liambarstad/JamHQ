@@ -8,6 +8,7 @@ RSpec.feature "user can log in" do
                        last_name: "Ever",
                        role: 0)
     visit "/"
+    save_and_open_page
     click_on "Login"
     fill_in "username", with: user.username
     fill_in "password", with: "LOGIN"
