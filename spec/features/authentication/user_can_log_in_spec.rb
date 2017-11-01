@@ -18,7 +18,7 @@ RSpec.feature "user can log in" do
     expect(page).to have_content("Logout")
   end
 
-  xscenario "with facebook" do
+  scenario "with facebook" do
     user = User.create(username: "Liamthegreat",
                        password: "LOGIN",
                        first_name: "Greatest",
@@ -36,7 +36,7 @@ RSpec.feature "user can log in" do
     expect(page).to have_content("Logout")
   end
 
-  xscenario "with incorrect password" do
+  scenario "with incorrect password" do
     user = User.create(username: "Liamthegreat",
                        password: "LOGIN",
                        first_name: "Greatest",
@@ -52,7 +52,7 @@ RSpec.feature "user can log in" do
     expect(page).to have_content("Incorrect Password")
   end
 
-  xscenario "with incorrect name" do
+  scenario "with incorrect name" do
     user = User.create(username: "Liamthegreat",
                        password: "LOGIN",
                        first_name: "Greatest",

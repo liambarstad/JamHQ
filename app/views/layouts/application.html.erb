@@ -11,7 +11,8 @@
   <body>
 
     <nav>
-      <%= link_to "Login", session_show_path %>
+      <%= link_to "Login", session_path %>
+      <%= link_to "Register", new_session_path %>
     </nav>
 
     <%= yield %>
@@ -22,7 +23,7 @@
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1882259122086128';
+        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1882259122086128|_A6FLMXv9RR40g1XRebAgJw5N40';
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
       </script>

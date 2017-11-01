@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "user can create a new account" do
-  xscenario "from main page" do
+  scenario "from main page" do
     user = User.new(username: "Liamthegreat",
                     password: "LOGIN",
                     first_name: "Greatest",
@@ -19,7 +19,7 @@ RSpec.feature "user can create a new account" do
     expect(page).to have_content("Logout")
   end
 
-  xscenario "from login page" do
+  scenario "from login page" do
     user = User.new(username: "Liamthegreat",
                     password: "LOGIN",
                     first_name: "Greatest",
