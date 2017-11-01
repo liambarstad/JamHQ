@@ -26,7 +26,7 @@ class SessionController < ApplicationController
     user = User.new(username: params[:username],
                     password: params[:password],
                     first_name: params[:first_name],
-                    last_name: params[:last_name]
+                    last_name: params[:last_name],
                     role: 0)
     user.validate
     if user.save
