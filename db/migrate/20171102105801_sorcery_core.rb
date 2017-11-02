@@ -4,7 +4,7 @@ class SorceryCore < ActiveRecord::Migration[5.1]
       t.string :username
       t.string :first_name
       t.string :last_name
-      t.string :email,            :null => false
+      t.string :email
       t.string :crypted_password
       t.string :salt
       t.integer :role

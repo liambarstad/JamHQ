@@ -5,13 +5,12 @@ class FacebookController < ApplicationController
   end
 
   def create
-    binding.pry
-    if @user = login_from("facebook")
+    if @user = login_from(:facebook)
       flash[:notice] = "Login Successful"
       redirect_to root_path
     else
       begin
-        @user = create_from("facebook")
+        @user = create_from(:facebook)
         reset_session
         auto_login(@user)
         flash[:notice] = "Login Successful"

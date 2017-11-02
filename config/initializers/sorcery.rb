@@ -15,11 +15,13 @@ Rails.application.config.sorcery.configure do |config|
   config.facebook.key = Rails.application.secrets.facebook_public_key
   config.facebook.secret = Rails.application.secrets.facebook_secret_key
   config.facebook.callback_url = "http://localhost:3000/auth/facebook/callback"
-  config.facebook.user_info_mapping = { first_name: "first_name",
+  config.facebook.user_info_mapping = { email: "email",
+                                        first_name: "first_name",
                                         last_name: "last_name",
-                                        username: "name",
+                                        username: "username",
+                                        image: "profile_pic",
+                                        location: "location",
                                         facebook_id: "id" }
-                                        # image, password, location, email
   config.facebook.scope = "email,public_profile,user_location"
   # user_actions.music
   config.facebook.display = "popup"

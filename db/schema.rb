@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171102120803) do
     t.string "username"
     t.string "first_name"
     t.string "last_name"
-    t.string "email", null: false
+    t.string "email"
     t.string "crypted_password"
     t.string "salt"
     t.integer "role"
