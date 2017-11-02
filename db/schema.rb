@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101132247) do
+ActiveRecord::Schema.define(version: 20171102105801) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 20171101132247) do
     t.integer "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "bio"
+    t.string "image"
+    t.string "location"
+    t.bigint "facebook_id"
   end
 
 end
