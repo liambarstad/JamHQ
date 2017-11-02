@@ -15,7 +15,6 @@
         <%= link_to "Login", session_path %>
         <%= link_to "Register", new_session_path %>
         <%= link_to "Log In With Facebook", facebook_path(provider: :facebook) %>
-        <a href="#" id="sign_in">Log In With Facebook</a>
       <% else %>
         <%= link_to "Log Out", session_path, method: :delete, id: "sign_out" %>
       <% end %>

@@ -4,7 +4,7 @@ class SessionController < ApplicationController
 
   def update
     user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
+    if user && login(user.email, params[:password])
       session[:user_id] = user.id
       redirect_to root_path
     elsif user
@@ -20,7 +20,7 @@ class SessionController < ApplicationController
 
   def create
     user = User.new(user_params)
-    user.validate
+    user.generate_errors
     if user.save
       session[:user_id] = user.id
       redirect_to root_path
@@ -38,7 +38,7 @@ class SessionController < ApplicationController
   private
 
   def user_params
-    params.permit(:username, :password, :first_name, :last_name)
+    params.permit(:username, :password, :first_name, :last_name, :email)
   end
 
 end
