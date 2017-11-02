@@ -1,19 +1,19 @@
 <h1>Create New Account</h1>
 
-<%= form_for(:session, url: url_for(controller: "session", action: "create")) do |f| %>
+<%= form_tag("/session", method: :post) do %>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+  <%= label_tag :first_name %>
+  <%= text_field_tag :first_name %>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
+  <%= label_tag :last_name %>
+  <%= text_field_tag :last_name %>
 
-  <%= f.label :password %>
-  <%= f.text_field :password %>
+  <%= label_tag :password %>
+  <%= text_field_tag :password %>
 
-  <%= f.submit "Create New Account" %>
+  <%= submit_tag "Create New Account" %>
 
 <% end %>

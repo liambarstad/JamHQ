@@ -10,8 +10,8 @@ RSpec.feature "user can create a new account" do
 
     visit "/"
     click_on "Register"
-    fill_in "user[username]", with: user.username
-    fill_in "user[password]", with: "LOGIN"
+    fill_in "username", with: user.username
+    fill_in "password", with: "LOGIN"
     click_on "Create New Account"
 
     expect(current_path).to eq("/")
@@ -29,8 +29,8 @@ RSpec.feature "user can create a new account" do
     visit "/"
     click_on "Login"
     click_on "Create New Account"
-    fill_in "user[username]", with: user.username
-    fill_in "user[password]", with: "LOGIN"
+    fill_in "username", with: user.username
+    fill_in "password", with: "LOGIN"
     click_on "Create New Account"
 
     expect(current_path).to eq("/")

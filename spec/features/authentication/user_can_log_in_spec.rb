@@ -9,8 +9,8 @@ RSpec.feature "user can log in" do
                        role: 0)
     visit "/"
     click_on "Login"
-    fill_in "user[username]", with: user.username
-    fill_in "user[password]", with: "LOGIN"
+    fill_in "username", with: user.username
+    fill_in "password", with: "LOGIN"
     click_on "Login"
 
     expect(current_path).to eq("/")
@@ -44,8 +44,8 @@ RSpec.feature "user can log in" do
                        role: 0)
     visit "/"
     click_on "Login"
-    fill_in "user[username]", with: user.username
-    fill_in "user[password]", with: "notthepassword"
+    fill_in "username", with: user.username
+    fill_in "password", with: "notthepassword"
     click_on "Login"
 
     expect(current_path).to eq(session_path)
@@ -60,8 +60,8 @@ RSpec.feature "user can log in" do
                        role: 0)
     visit "/"
     click_on "Login"
-    fill_in "user[username]", with: "Liamthemediocre"
-    fill_in "user[password]", with: "LOGIN"
+    fill_in "username", with: "Liamthemediocre"
+    fill_in "password", with: "LOGIN"
     click_on "Login"
 
     expect(current_path).to eq(session_path)
