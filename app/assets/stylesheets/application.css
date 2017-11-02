@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+a:link, a:visited {
+   text-decoration: none;
+}
+#top_header {
+  height: 100px;
+  width: 100%;
+  padding-top: 0.7em;
+  padding-left: 2em;
+  background-image: url('top_logo_1.jpg');
+  background-repeat: no-repeat;
+}
+#top_logo {
+    text-decoration: none;
+    font-variant: small-caps;
+    font-style: italic;
+    font-family: "URW Chancery L", cursive;
+    font-size: 50px;
+}
+a:hover, a:active {
+   font-style: oblique;
+}

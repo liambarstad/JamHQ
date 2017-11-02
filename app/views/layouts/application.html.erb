@@ -10,6 +10,10 @@
 
   <body>
 
+    <div id="top_header">
+      <a href="/" id="top_logo">JamHQ</a>
+    </div>
+
     <nav>
       <% if current_user.nil? %>
         <%= link_to "Login", session_path %>
