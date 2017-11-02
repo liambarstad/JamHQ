@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/session', to: "session#show"
   put '/session', to: "session#update"
+  get '/facebook', to: "facebook#update"
   resources :session, only: [:new, :create]
 
 end
