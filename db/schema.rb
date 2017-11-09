@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102120803) do
+ActiveRecord::Schema.define(version: 20171109005840) do
+
+  create_table "attachments", force: :cascade do |t|
+    t.binary "body"
+    t.integer "extension"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_attachments_on_post_id"
+  end
 
   create_table "authentications", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -19,6 +28,22 @@ ActiveRecord::Schema.define(version: 20171102120803) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "user_id", default: 0
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,6 +61,17 @@ ActiveRecord::Schema.define(version: 20171102120803) do
     t.string "location"
     t.bigint "facebook_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "venues", force: :cascade do |t|
+    t.string "name"
+    t.string "street_number"
+    t.string "street"
+    t.string "city"
+    t.integer "zip_code"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
