@@ -16,6 +16,10 @@
 a:link, a:visited {
    text-decoration: none;
 }
+#top_nav {
+  background-color: rgba(105,27,27,1);
+  height: 55px;
+}
 #top_header {
   height: 100px;
   width: 100%;

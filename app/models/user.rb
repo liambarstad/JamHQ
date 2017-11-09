@@ -5,6 +5,7 @@ class User < ApplicationRecord
   end
 
   has_many :authentications, :dependent => :destroy
+  has_many :posts
   accepts_nested_attributes_for :authentications
 
   def generate_errors

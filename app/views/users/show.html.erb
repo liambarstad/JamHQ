@@ -1,0 +1,15 @@
+<h1><%= @user.name %></h1>
+<%= image_tag @user.image %>
+<p><%= @user.bio %></p>
+
+<div id="new-post-form">
+  <form>
+    <input type="text" name="new-post-field" placeholder="Make a Post" class="new-post">
+    <input type="submit">
+  </form>
+</div>
+
+<% @posts.each do |post| %>
+  <p><%= @post.body %></p>
+  <p><%= @post.created_at %></p>
+<% end %>
