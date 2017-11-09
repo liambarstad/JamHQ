@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20171109074305) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "bio"
-    t.string "image"
+    t.string "image", default: "default-user.png"
     t.string "location"
     t.bigint "facebook_id"
     t.index ["email"], name: "index_users_on_email", unique: true

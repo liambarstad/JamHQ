@@ -17,31 +17,32 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
 
-    <div id="top_header">
-      <a href="/" id="top_logo">JamHQ</a>
+    <div id="top-header">
+      <a href="/" id="top-logo">JamHQ</a>
     </div>
 
-    <nav id="top_nav">
+    <nav id="top-nav">
       <div class="nav-wrapper">
         <ul class="left hide-on-med-and-down">
-          <% if current_user.nil? %>
-            <li><a class="dropdown-button" href="#" data-activates="dropdown1">Login<i class="material-icons left">arrow_drop_down</i></a></li>
-          <% else %>
+          <% if current_user %>
             <li><%= link_to "Log Out", session_path, method: :delete, id: "sign_out" %></li>
+            <li class="navbar-thing"><%= link_to "Profile", user_path(current_user) %></li>
+          <% else %>
+            <li><a class="dropdown-button navbar-thing" href="#" data-activates="dropdown1">Login<i class="material-icons left">arrow_drop_down</i></a></li>
+            <li class="navbar-thing"><%= link_to "Profile", session_path %></li>
           <% end %>
-          <li><%= link_to "Profile", user_path(current_user) %></li>
-          <li><%= link_to "Feed", posts_path %></li>
-          <li><a>Musicians</a></li>
-          <li><a>Venues</a></li>
+          <li class="navbar-thing"><%= link_to "Feed", posts_path %></li>
+          <li class="navbar-thing"><a>Musicians</a></li>
+          <li class="navbar-thing"><a>Venues</a></li>
         </ul>
       </div>
     </nav>
 
     <% if current_user.nil? %>
       <ul id="dropdown1" class="dropdown-content">
-        <li><%= link_to "Login", session_path %></li>
-        <li><%= link_to "Register", new_session_path %></li>
-        <li><%= link_to "Log In With Facebook", facebook_path(provider: :facebook) %></li>
+        <li class="navbar-thing"><%= link_to "Login", session_path %></li>
+        <li class="navbar-thing"><%= link_to "Register", new_session_path %></li>
+        <li class="navbar-thing"><%= link_to "Log In With Facebook", facebook_path(provider: :facebook) %></li>
       </ul>
     <% end %>
 
@@ -50,18 +51,24 @@
     <% end %>
 
     <div class='row'>
-      <div class='col s11'>
+      <div class='col s11' id='main-container'>
         <div class='row'>
-          <div class='col s3'>
-            <h1>stufff</h1>
+          <div class='col s3 main-element'>
+            <% if current_user %>
+              <div class='music-plugin'>
+                <p>Spotify and Souncloud Coming Soon</p>
+              </div>
+              <% current_user.nearby_users.each do |user| %>
+                <ul class='user-thumb'>
+                  <li><%= user.image %></li>
+                  <li><%= user.first_name %></li>
+                </ul>
+              <% end %>
+            <% end %>
           </div>
 
-          <div class='col s6'>
+          <div class='col s8 main-element'>
             <%= yield %>
-          </div>
-
-          <div class='col s3'>
-            <h1>Thinnngggs</h1>
           </div>
         </div>
       </div>
