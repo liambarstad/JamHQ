@@ -37,10 +37,4 @@ class Api::V1::PostsController < Api::V1::ApiController
     end
   end
 
-  private
-
-  def find_body
-    @body = request.headers['body']
-  end
-
 end

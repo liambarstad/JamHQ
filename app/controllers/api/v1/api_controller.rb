@@ -1,6 +1,7 @@
 class Api::V1::ApiController < ApplicationController
 
-  helper_method :authenticate_user
+  helper_method :authenticate_user,
+                :find_body
 
   private
 
@@ -8,6 +9,10 @@ class Api::V1::ApiController < ApplicationController
     unless @user = TokenService.find_user(request.headers["Token"])
       render status: :forbidden
     end
+  end
+
+  def find_body
+    @body = request.headers['body']
   end
 
 end
