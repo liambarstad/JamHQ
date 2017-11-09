@@ -6,9 +6,50 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
   <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <div id="top_header">
+      <a href="/" id="top_logo">JamHQ</a>
+    </div>
+
+    <nav id="top_nav">
+      <div class="nav-wrapper">
+        <ul class="left hide-on-med-and-down">
+          <% if current_user.nil? %>
+            <li><a class="dropdown-button" href="#" data-activates="dropdown1">Login<i class="material-icons left">arrow_drop_down</i></a></li>
+          <% else %>
+            <li><%= link_to "Log Out", session_path, method: :delete, id: "sign_out" %></li>
+          <% end %>
+          <li><a>Profile</a></li>
+          <li><a>Feed</a></li>
+          <li><a>Musicians</a></li>
+          <li><a>Venues</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <% if current_user.nil? %>
+      <ul id="dropdown1" class="dropdown-content">
+        <li><%= link_to "Login", session_path %></li>
+        <li><%= link_to "Register", new_session_path %></li>
+        <li><%= link_to "Log In With Facebook", facebook_path(provider: :facebook) %></li>
+      </ul>
+    <% end %>
+
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "flash #{key}" %>
+    <% end %>
+
     <%= yield %>
+
   </body>
 </html>

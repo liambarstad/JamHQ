@@ -32,6 +32,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'figaro'
 gem 'sorcery'
+gem 'faraday'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -40,6 +44,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_bot_rails'
+  gem 'launchy'
 end
 
 group :development do
