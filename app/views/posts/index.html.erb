@@ -1,19 +1,21 @@
 <h1>Main Feed</h1>
 
-<div id="new-post">
-  <input id="new-post-body" type="text">
-  <input id="new-post-submit" type="submit">
+<div id='new-post'>
+  <form>
+    <input id='new-post-body' type='text'>
+    <input id='new-post-submit' type='submit'>
+  </form>
 </div>
 
 <div class="posts">
   <% @posts.each do |post| %>
-    <div class='post' data-id=${postId}>
+    <div class='post' data-id='<%= post.id %>'>
       <p class='post-username'><%= post.user %> Posted:</p>
       <p class='post-body'><%= post.body %></p>
       <p class='post-timestamp'><%= post.created_at %></p>
       <%= if post.user == current_user %>
-        <button data-id="<%= post.id %>" class='edit-post'>Edit</button>
-        <button data-id="<%= post.id %>" class='delete-post'>Delete</button>
+        <button data-id='<%= post.id %>' class='edit-post'>Edit</button>
+        <button data-id='<%= post.id %>' class='delete-post'>Delete</button>
       <% end %>
       <% post.comments_by_time.each do |comment| %>
         <div class='comment'>
@@ -21,8 +23,8 @@
           <p class='comment-body'><%= comment.body %></p>
           <p class='comment-timestamp'><%= comment.created_at %></p>
           <% if comment.user == current_user %>
-            <button data-id="<%= comment.id %>">Edit</button>
-            <button data-id="<%= comment.id %>">Delete</button>
+            <button data-id='<%= comment.id %>'>Edit</button>
+            <button data-id='<%= comment.id %>'>Delete</button>
           <% end %>
         </div>
       <% end %>
