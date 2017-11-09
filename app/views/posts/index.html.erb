@@ -15,6 +15,10 @@
         <button data-id='<%= post.id %>' class='edit-post'>Edit</button>
         <button data-id='<%= post.id %>' class='delete-post'>Delete</button>
       <% end %>
+      <div class='new-comment'>
+        <input id='new-comment-body' type='text'>
+        <input id='new-comment-submit' type='submit'>
+      </div>
       <% post.comments_by_time.each do |comment| %>
         <div class='comment'>
           <p class='comment-username'>Posted By: <%= comment.user %></p>
