@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      get "/token", to: "token#create"
       resources :posts, only: [:create, :update, :destroy]
       resources :comments, only: [:create, :update, :destroy]
       resources :users, only: [:create, :update, :destroy]
