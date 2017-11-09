@@ -1,5 +1,4 @@
 class Api::V1::ApiController < ApplicationController
-
   helper_method :authenticate_user,
                 :find_body
 
