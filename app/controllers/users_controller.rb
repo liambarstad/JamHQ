@@ -5,7 +5,12 @@ class UsersController < ApplicationController
  end
 
  def show
-   @posts = current_user.posts.order("created_at DESC")
+   begin
+     @user = User.find(params[:id])
+     @posts = @user.posts.order("created_at DESC")
+   rescue
+     render template: "utility#404"
+   end
  end
 
 end

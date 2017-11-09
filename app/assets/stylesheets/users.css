@@ -1,0 +1,24 @@
+.user-image {
+  height: 120px;
+  width: 120px;
+}
+.user-default {
+  background-image: url('default-user.png');
+  height: 120px;
+  width: 120px;
+}
+.user-infocard {
+
+}
+.user-fullname {
+
+}
+.user-username {
+
+}
+.user-info {
+
+}
+.user-bio {
+
+}
