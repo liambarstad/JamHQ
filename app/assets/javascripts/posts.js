@@ -64,7 +64,7 @@ $(document).ready(function(event) {
     });
   }
 
-  $('.new-post-submit').on('click', createPost());
+  $('#new-post-submit').on('click', createPost());
   $('.posts .post .edit-post').on('click', editPost($(this.data('id'));
   $('.posts .post .edit-post-submit').on('click', updatePost($(this.data('id'));
   $('.posts .post .delete-post').on('click', deletePost($(this.data('id'));

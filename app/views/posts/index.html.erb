@@ -1,0 +1,17 @@
+<h1>Main Feed</h1>
+
+<div id="new-post">
+  <input id="new-post-body" type="text">
+  <input id="new-post-submit" type="submit">
+</div>
+
+<div class="posts">
+  <% @posts.each do |post| %>
+    <div class='post' data-id=${postId}>
+      <p class='post-username'>${username}</p>
+      <p class='post-body'>${body}</p>\n<p class='post-created-at'>${createdAt}</p>
+      <button data-id="<%= post.id %>" class='edit-post'>Edit</button>
+      <button data-id="<%= post.id %>" class='delete-post'>Delete</button>
+    </div>
+  <% end %>
+</div>

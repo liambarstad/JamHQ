@@ -29,8 +29,8 @@
           <% else %>
             <li><%= link_to "Log Out", session_path, method: :delete, id: "sign_out" %></li>
           <% end %>
-          <li><a>Profile</a></li>
-          <li><a>Feed</a></li>
+          <li><%= link_to "Profile", user_path(current_user) %></li>
+          <li><%= link_to "Feed", posts_path %></li>
           <li><a>Musicians</a></li>
           <li><a>Venues</a></li>
         </ul>
