@@ -1,10 +1,8 @@
 $(document).ready(function(event) {
   event.preventDefault();
 
-  var username = $("#username").val();
-  var password = $("#password").val();
-  var token = getWebToken(username, password);
-  var host_url = "http://localhost:3000";
+  var token = getWebToken();
+  var host_url = <%= ENV['host_url'] %>;
 
   var buttons = function(postId){
     return `<button data-id=${postId} class='edit-post'>Edit</button><button data-id=${postId} class='delete-post'>Delete</button>`;

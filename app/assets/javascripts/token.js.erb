@@ -1,0 +1,7 @@
+var getWebToken = function(username, password){
+  return $.ajax({
+    url: <%= ENV['host-url'] %> + '/api/v1/token',
+    method: 'GET',
+    data: { username: <%= current_user.username %>, password = <%= session[:password] %> }
+  });
+}
