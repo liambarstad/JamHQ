@@ -6,34 +6,28 @@ class Api::V1::PostsController < Api::V1::ApiController
     new_post = @user.posts.new(body: @body)
     if new_post.save
       render json: new_post, status: :created
-    else
-      render status: :bad_request
     end
   end
 
   def update
     begin
-      post = @user.posts.find(request.headers['id'])
+      post = @user.posts.find(params['id'])
       if post.update(body: @body)
         render json: post
-      else
-        render status: :bad_request
       end
     rescue
-      render status: :not_found
+      render json: nil
     end
   end
 
   def destroy
     begin
-      post = @user.posts.find(request.headers['id'])
-      if post.update(body: @body)
-        render status: :ok
-      else
-        render status: :bad_request
+      post = @user.posts.find(params['id'])
+      if post.destroy
+        render json: nil
       end
     rescue
-      render status: :not_found
+      render json: { error: "not found" }
     end
   end
 
