@@ -13,7 +13,7 @@ class TokenService
   def self.find_user(token)
     begin
       result = JWT.decode(token, Rails.application.secrets.secret_key_base)[0]
-      check_user(result["username"], result["password"])
+      get_user(result["username"], result["password"])
     rescue JWT::DecodeError
       return false
     end
@@ -23,7 +23,7 @@ class TokenService
 
   private
 
-  def self.check_user(username, password)
+  def self.get_user(username, password)
     user = User.find_by(username: username)
     if user && user.authenticate(password)
       return user
