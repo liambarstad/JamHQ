@@ -1,12 +1,7 @@
 class TokenService
 
-  def initialize(attrs = {})
-    @email = attrs[:email]
-    @password = attrs[:password]
-  end
-
-  def get_token
-    payload = { email: @email, password: @password }
+  def self.get_token(email, password)
+    payload = { email: email, password: password }
     JWT.encode(payload, Rails.application.secrets.secret_key_base)
   end
 

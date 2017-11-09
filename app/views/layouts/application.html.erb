@@ -7,15 +7,12 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
 
     <div id="top-header">
       <a href="/" id="top-logo">JamHQ</a>
@@ -58,12 +55,6 @@
               <div class='music-plugin'>
                 <p>Spotify and Souncloud Coming Soon</p>
               </div>
-              <% current_user.nearby_users.each do |user| %>
-                <ul class='user-thumb'>
-                  <li><%= user.image %></li>
-                  <li><%= user.first_name %></li>
-                </ul>
-              <% end %>
             <% end %>
           </div>
 
