@@ -10,7 +10,7 @@ class TokenService
     JWT.encode(payload, Rails.application.secrets.secret_key_base)
   end
 
-  def self.authenticate_token(token)
+  def self.find_user(token)
     begin
       result = JWT.decode(token, Rails.application.secrets.secret_key_base)[0]
       check_user(result["username"], result["password"])
@@ -19,12 +19,14 @@ class TokenService
     end
   end
 
+  def
+
   private
 
-  def self.check_user(id, password)
-    user = User.find_by(id: id)
+  def self.check_user(username, password)
+    user = User.find_by(username: username)
     if user && user.authenticate(password)
-      return true
+      return user
     else
       return false
     end
