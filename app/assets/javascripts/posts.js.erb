@@ -1,0 +1,66 @@
+var token = getWebToken(<%= current_user.email %>, <%= session[:password] %>);
+var setError = '<div class="error-message"><p>This action could not be completed. Please try again later</p></div>';
+
+function buttons(postId){
+  return `<button data-id=${postId} class='edit-post'>Edit</button><button data-id=${postId} class='delete-post'>Delete</button>`;
+}
+
+function formatPost(postId, username, body, createdAt){
+  return `<div class='post' data-id=${postId}>\n<p class='post-username'>${username}</p>\n<p class='post-body'>${body}</p>\n<p class='post-created-at'>${createdAt}</p>\n` + buttons(postId) + '</div>';
+}
+
+function editPostArea(postId, body){
+  return `\n<input type='text' name='edit-post-area' value='${body}'>\n<input type='submit' data-id=${postId} name='edit-post-submit'>\n`;
+}
+
+function createPost(){
+  var body = $('.new-post-body').val();
+  return $.ajax({
+    url: '/posts',
+    method: 'POST',
+    data: { token: token, body: body }
+  }).done(function(data){
+    $(".posts").prepend(formatPost(data.id, data.username, data.body, data.created_at);
+  }).fail(function(){
+    $(".new-post").prepend(setError);
+  });
+}
+
+function updatePost(postId){
+  return $.ajax({
+    url: '/posts/' + postId,
+    method: 'PUT',
+    data: { token: token }
+  }).done(function(data){
+    $(".posts").find(`[data-id='${postId}']`).replaceWith(formatPost(data.id data.username, data.body, data.created_at);
+  }).fail(function(){
+    $(".posts").find(`[data-id='${postId}']`).prepend(setError);
+  });
+}
+
+function editPost(postId){
+  $(".posts").find(`[data-id='${postId}]`).closest('.post-body').val(editPostArea(postId, this.val());
+}
+
+function deletePost(postId){
+  return $.ajax({
+    url: '/posts/' + postId,
+    method: 'DELETE',
+    data: { token: token }
+  }).done(function(data){
+    $(".posts").find(`[data-id='${postId}']`).remove();
+  }).fail(function(){
+    setError;
+  });
+}
+
+$(document).ready(function(event) {
+
+  event.preventDefault();
+
+  $('#new-post-submit').on('click', createPost());
+  $('.posts .post .edit-post').on('click', editPost($(this.data('id'));
+  $('.posts .post .edit-post-submit').on('click', updatePost($(this.data('id'));
+  $('.posts .post .delete-post').on('click', deletePost($(this.data('id'));
+
+});

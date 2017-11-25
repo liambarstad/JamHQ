@@ -1,20 +1,29 @@
 example_id                                                              | status  | run_time        |
 ----------------------------------------------------------------------- | ------- | --------------- |
-./spec/api/v1/post_endpoint_spec.rb[1:1:1]                              | passed  | 0.22417 seconds |
-./spec/api/v1/post_endpoint_spec.rb[1:1:2]                              | passed  | 0.29349 seconds |
-./spec/api/v1/post_endpoint_spec.rb[1:2:1]                              | passed  | 0.23372 seconds |
-./spec/api/v1/post_endpoint_spec.rb[1:2:2]                              | passed  | 0.58707 seconds |
-./spec/api/v1/post_endpoint_spec.rb[1:3:1]                              | passed  | 0.2229 seconds  |
-./spec/features/authentication/user_can_create_new_account_spec.rb[1:1] | failed  | 0.31883 seconds |
-./spec/features/authentication/user_can_create_new_account_spec.rb[1:2] | failed  | 0.35009 seconds |
-./spec/features/authentication/user_can_log_in_spec.rb[1:1]             | failed  | 0.21719 seconds |
-./spec/features/authentication/user_can_log_in_spec.rb[1:2]             | failed  | 0.19133 seconds |
-./spec/features/authentication/user_can_log_in_spec.rb[1:3]             | failed  | 0.33437 seconds |
-./spec/features/authentication/user_can_log_in_spec.rb[1:4]             | failed  | 0.2178 seconds  |
-./spec/features/users/user_can_make_a_post_spec.rb[1:1]                 | failed  | 0.38115 seconds |
-./spec/features/users/user_can_make_a_post_spec.rb[1:2]                 | failed  | 0.47676 seconds |
-./spec/features/users/user_can_make_a_post_spec.rb[1:3]                 | pending | 0.00002 seconds |
+./spec/api/v1/post_endpoint_spec.rb[1:1:1]                              | passed  | 0.21406 seconds |
+./spec/api/v1/post_endpoint_spec.rb[1:1:2]                              | passed  | 0.431 seconds   |
+./spec/api/v1/post_endpoint_spec.rb[1:2:1]                              | passed  | 0.21667 seconds |
+./spec/api/v1/post_endpoint_spec.rb[1:2:2]                              | passed  | 0.43058 seconds |
+./spec/api/v1/post_endpoint_spec.rb[1:3:1]                              | passed  | 0.55443 seconds |
+./spec/features/authentication/user_can_create_new_account_spec.rb[1:1] | failed  | 0.20495 seconds |
+./spec/features/authentication/user_can_create_new_account_spec.rb[1:2] | failed  | 0.08419 seconds |
+./spec/features/authentication/user_can_log_in_spec.rb[1:1]             | failed  | 0.19041 seconds |
+./spec/features/authentication/user_can_log_in_spec.rb[1:2]             | failed  | 0.47041 seconds |
+./spec/features/authentication/user_can_log_in_spec.rb[1:3]             | failed  | 0.18731 seconds |
+./spec/features/authentication/user_can_log_in_spec.rb[1:4]             | failed  | 0.20097 seconds |
+./spec/features/posts/user_can_create_a_post_spec.rb[1:1]               | failed  | 0.06502 seconds |
+./spec/features/posts/user_can_create_a_post_spec.rb[1:2]               | failed  | 0.06568 seconds |
+./spec/features/posts/user_can_create_a_post_spec.rb[1:3]               | failed  | 0.06523 seconds |
+./spec/features/posts/user_can_edit_a_post_spec.rb[1:1:1]               | failed  | 0.06505 seconds |
+./spec/features/posts/user_can_edit_a_post_spec.rb[1:1:2]               | failed  | 0.06576 seconds |
+./spec/features/posts/user_can_edit_a_post_spec.rb[1:2:1]               | failed  | 0.06575 seconds |
+./spec/features/posts/user_can_edit_a_post_spec.rb[1:2:2]               | failed  | 0.06793 seconds |
+./spec/models/attachment_spec.rb[1:1]                                   | unknown |                 |
 ./spec/models/authentication_spec.rb[1:1]                               | pending | 0.00001 seconds |
+./spec/models/comment_spec.rb[1:1]                                      | unknown |                 |
+./spec/models/friendship_spec.rb[1:1]                                   | unknown |                 |
+./spec/models/post_spec.rb[1:1]                                         | unknown |                 |
+./spec/models/post_spec.rb[1:2]                                         | unknown |                 |
 ./spec/models/user_spec.rb[1:1]                                         | pending | 0.00001 seconds |
 ./spec/service/token_service_spec.rb[1:1]                               | passed  | 0.00177 seconds |
 ./spec/service/token_service_spec.rb[1:2]                               | passed  | 0.21403 seconds |

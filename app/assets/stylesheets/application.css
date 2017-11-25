@@ -16,24 +16,37 @@
 a:link, a:visited {
    text-decoration: none;
 }
-#top_nav {
-  background-color: rgba(105,27,27,1);
+.navbar-thing {
+  color: white;
+  text-shadow: 1px 1px 2px white, 0 0 5px darkgreen, 0 0 5px green;
+}
+.main-element {
+  border-radius: 20px;
+  background: radial-gradient(rgba(0,0,0,0), green);
+  height: 2000px;
+  margin: 5px;
+}
+#top-nav {
+  background-color: rgb(0,0,0);
   height: 55px;
 }
-#top_header {
+#top-header {
   height: 100px;
   width: 100%;
   padding-top: 0.7em;
   padding-left: 2em;
-  background-image: url('top_logo_1.jpg');
-  background-repeat: no-repeat;
+  background-color: rgb(0,0,0);
 }
-#top_logo {
-    text-decoration: none;
-    font-variant: small-caps;
-    font-style: italic;
-    font-family: "URW Chancery L", cursive;
-    font-size: 50px;
+#top-logo {
+  font-variant: small-caps;
+  font-style: italic;
+  font-family: "URW Chancery L", cursive;
+  font-size: 50px;
+  text-shadow: 1px 1px 2px white, 0 0 5px darkgreen, 0 0 5px green;
+}
+#main-container {
+  background: radial-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5), rgba(0,0,0,1);
+  height: 2000px;
 }
 a:hover, a:active {
    font-style: oblique;

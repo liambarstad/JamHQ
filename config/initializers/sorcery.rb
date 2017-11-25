@@ -12,19 +12,19 @@ Rails.application.config.sorcery.configure do |config|
     user.authentications_class = Authentication
   end
 
-  config.facebook.key = Rails.application.secrets.facebook_public_key
-  config.facebook.secret = Rails.application.secrets.facebook_secret_key
-  config.facebook.callback_url = "http://localhost:3000/auth/facebook/callback"
-  config.facebook.user_info_mapping = { email: "email",
-                                        first_name: "first_name",
-                                        last_name: "last_name",
-                                        username: "username",
-                                        image: "profile_pic",
-                                        location: "location",
-                                        facebook_id: "id" }
-  config.facebook.scope = "email,public_profile,user_location"
+  config.facebook.key = ENV['facebook_public_key']
+  config.facebook.secret = ENV['facebook_secret_key']
+  config.facebook.callback_url = ENV['host_url'] + '/auth/facebook/callback'
+  config.facebook.user_info_mapping = { email: 'email',
+                                        first_name: 'first_name',
+                                        last_name: 'last_name',
+                                        username: 'username',
+                                        image: 'profile_pic',
+                                        location: 'location',
+                                        facebook_id: 'id' }
+  config.facebook.scope = 'email,public_profile,user_location'
   # user_actions.music
-  config.facebook.display = "popup"
+  config.facebook.display = 'popup'
 
   config.user_class = 'User'
 end

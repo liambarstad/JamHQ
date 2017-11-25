@@ -1,0 +1,3 @@
+function getWebToken(email, password){
+  return <%= TokenService.get_token(${email}, ${password}) %>
+}

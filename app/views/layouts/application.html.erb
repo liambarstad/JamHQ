@@ -7,41 +7,39 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
 
-    <div id="top_header">
-      <a href="/" id="top_logo">JamHQ</a>
+    <div id="top-header">
+      <a href="/" id="top-logo">JamHQ</a>
     </div>
 
-    <nav id="top_nav">
+    <nav id="top-nav">
       <div class="nav-wrapper">
         <ul class="left hide-on-med-and-down">
-          <% if current_user.nil? %>
-            <li><a class="dropdown-button" href="#" data-activates="dropdown1">Login<i class="material-icons left">arrow_drop_down</i></a></li>
-          <% else %>
+          <% if current_user %>
             <li><%= link_to "Log Out", session_path, method: :delete, id: "sign_out" %></li>
+            <li class="navbar-thing"><%= link_to "Profile", user_path(current_user) %></li>
+          <% else %>
+            <li><a class="dropdown-button navbar-thing" href="#" data-activates="dropdown1">Login<i class="material-icons left">arrow_drop_down</i></a></li>
+            <li class="navbar-thing"><%= link_to "Profile", session_path %></li>
           <% end %>
-          <li><%= link_to "Profile", user_path(current_user) %></li>
-          <li><%= link_to "Feed", posts_path %></li>
-          <li><a>Musicians</a></li>
-          <li><a>Venues</a></li>
+          <li class="navbar-thing"><%= link_to "Feed", posts_path %></li>
+          <li class="navbar-thing"><a>Musicians</a></li>
+          <li class="navbar-thing"><a>Venues</a></li>
         </ul>
       </div>
     </nav>
 
     <% if current_user.nil? %>
       <ul id="dropdown1" class="dropdown-content">
-        <li><%= link_to "Login", session_path %></li>
-        <li><%= link_to "Register", new_session_path %></li>
-        <li><%= link_to "Log In With Facebook", facebook_path(provider: :facebook) %></li>
+        <li class="navbar-thing"><%= link_to "Login", session_path %></li>
+        <li class="navbar-thing"><%= link_to "Register", new_session_path %></li>
+        <li class="navbar-thing"><%= link_to "Log In With Facebook", facebook_path(provider: :facebook) %></li>
       </ul>
     <% end %>
 
@@ -49,7 +47,25 @@
       <%= content_tag :div, value, class: "flash #{key}" %>
     <% end %>
 
-    <%= yield %>
+    <div class='row'>
+      <div class='col s11' id='main-container'>
+        <div class='row'>
+          <div class='col s3 main-element'>
+            <% if current_user %>
+              <div class='music-plugin'>
+                <p>Spotify and Souncloud Coming Soon</p>
+              </div>
+            <% end %>
+          </div>
 
+          <div class='col s8 main-element'>
+
+            <%= yield %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= insert_paloma_hook %>
   </body>
 </html>

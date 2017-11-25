@@ -5,6 +5,7 @@ RSpec.feature "user can make a post" do
     user = User.create(username: "Liamthegreat",
                        password: "LOGIN",
                        first_name: "Greatest",
+                       email: "liambarstad@gmail.com",
                        last_name: "Ever",
                        role: 0)
     visit "/"
@@ -27,6 +28,7 @@ RSpec.feature "user can make a post" do
   scenario "from profile page" do
     user = User.create(username: "Liamthegreat",
                        password: "LOGIN",
+                       email: "liambarstad@gmail.com",
                        first_name: "Greatest",
                        last_name: "Ever",
                        role: 0)
@@ -47,14 +49,16 @@ RSpec.feature "user can make a post" do
     expect(page).to have_content("Lorem")
   end
 
-  xscenario "but not on a different profile" do
+  scenario "but not on a different profile" do
     user1 = User.create(username: "Liamthegreat",
                        password: "LOGIN",
+                       email: "liambarstad@gmail.com",
                        first_name: "Greatest",
                        last_name: "Ever",
                        role: 0)
     user2 = User.create(username: "Billthelesser",
                         password: "LOGIN2",
+                        email: "liam@liambarstad.com",
                         first_name: "NotThe",
                         last_name: "Greatest",
                         role: 0)
