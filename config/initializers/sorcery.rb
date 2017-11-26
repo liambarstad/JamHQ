@@ -14,7 +14,7 @@ Rails.application.config.sorcery.configure do |config|
 
   config.facebook.key = ENV['facebook_public_key']
   config.facebook.secret = ENV['facebook_secret_key']
-  config.facebook.callback_url = ENV['host_url'] + '/auth/facebook/callback'
+  config.facebook.callback_url = 'localhost:3000' + '/auth/facebook/callback'
   config.facebook.user_info_mapping = { email: 'email',
                                         first_name: 'first_name',
                                         last_name: 'last_name',

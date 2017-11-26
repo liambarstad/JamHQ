@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "token service" do
   it "can get a token" do
-    token_service = TokenService.new(email: "Liam", password: "LOGIN")
-    token = token_service.get_token
+    token = TokenService.get_token(email: "Liam", password: "LOGIN")
 
     expect(token).to_not eq(nil)
   end
@@ -13,28 +12,11 @@ RSpec.feature "token service" do
                        password: "LOGIN",
                        first_name: "Liam",
                        email: "liambarstad@gmail.com1")
-    token_service = TokenService.new(email: "liambarstad@gmail.com1", password: "LOGIN")
-    token = token_service.get_token
-    user_response = TokenService.find_user(token)
+    token = TokenService.get_token(email: "liambarstad@gmail.com1", password: "LOGIN")
+    user_hash = TokenService.decode_token(token)
 
-    expect(user_response).to eq(user)
+    expect(user_hash["email"]).to eq(user.email)
+    expect(user_hash["password"]).to eq("LOGIN")
   end
 
-  it "won't decode if random token" do
-    user_response = TokenService.find_user("wqedoiujq#@$R#WEQWEDOK#")
-
-    expect(user_response).to be_falsy
-  end
-
-  it "won't decode if wrong password" do
-    user = User.create(username: "Liam",
-                       password: "LOGIN",
-                       first_name: "Liam",
-                       email: "liambarstad@gmail.com2")
-    token_service = TokenService.new(email: "liambarstad@gmail.com2", password: "WRONG")
-    token = token_service.get_token
-    user_response = TokenService.find_user(token)
-
-    expect(user_response).to eq(nil)
-  end
 end

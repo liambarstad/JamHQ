@@ -8,8 +8,7 @@ RSpec.describe "post endpoints" do
                          first_name: "Liam",
                          email: "liambarstad@gmail.com3")
       post = Post.new(body: "oh what a feeling")
-      token_service = TokenService.new(email: "liambarstad@gmail.com3", password: "LOGIN")
-      token = token_service.get_token
+      token = Token_service.get_token
 
       post "/api/v1/posts", headers: { token: token, body: post.body }
 
@@ -27,8 +26,7 @@ RSpec.describe "post endpoints" do
                          first_name: "Liam",
                          email: "liambarstad@gmail.com3")
       post = Post.new(body: "oh what a feeling")
-      token_service = TokenService.new(email: "liambarstad@gmail.com3", password: "LOGIN")
-      token = token_service.get_token
+      token = Token_service.get_token
 
       post "/api/v1/posts", headers: { token: token, body: "" }
 
@@ -46,8 +44,7 @@ RSpec.describe "post endpoints" do
                          first_name: "Liam",
                          email: "liambarstad@gmail.com4")
       post = user.posts.create(body: "oh what a feeling")
-      token_service = TokenService.new(email: "liambarstad@gmail.com4", password: "LOGIN")
-      token = token_service.get_token
+      token = Token_service.get_token
 
       put "/api/v1/posts/#{post.id}", headers: { token: token, body: "more of a feeling" }
       result = JSON.parse(response.body)
@@ -61,8 +58,7 @@ RSpec.describe "post endpoints" do
                          first_name: "Liam",
                          email: "liambarstad@gmail.com5")
       post = user.posts.create(body: "oh what a feeling")
-      token_service = TokenService.new(email: "liambarstad@gmail.com5", password: "LOGIN")
-      token = token_service.get_token
+      token = Token_service.get_token
 
       put "/api/v1/posts/#{post.id}", headers: { token: token, body: "" }
 
@@ -77,8 +73,7 @@ RSpec.describe "post endpoints" do
                          first_name: "Liam",
                          email: "liambarstad@gmail.com6")
       post = user.posts.create(body: "oh what a feeling")
-      token_service = TokenService.new(email: "liambarstad@gmail.com6", password: "LOGIN")
-      token = token_service.get_token
+      token = Token_service.get_token
 
       delete "/api/v1/posts/#{post.id}", headers: { token: token }
       new_post = Post.find_by(body: "oh what a feeling")

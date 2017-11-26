@@ -1,16 +1,14 @@
 class TokenService
 
-  def self.get_token(email, password)
-    payload = { email: email, password: password }
-    JWT.encode(payload, Rails.application.secrets.secret_key_base)
+  def self.get_token(attrs)
+    JWT.encode(attrs, Rails.application.secrets.secret_key_base)
   end
 
-  def self.find_user(token)
+  def self.decode_token(token)
     begin
-      result = JWT.decode(token, Rails.application.secrets.secret_key_base)[0]
-      User.authenticate(result["email"], result["password"])
-    rescue JWT::DecodeError
-      return false
+      JWT.decode(token, Rails.application.secrets.secret_key_base)[0]
+    rescue
+      return nil
     end
   end
 
