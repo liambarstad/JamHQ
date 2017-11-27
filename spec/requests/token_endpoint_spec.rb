@@ -14,7 +14,21 @@ RSpec.describe "token endpoints" do
     end
 
     it "with invalid info" do
+      user = create(:user, password: 'LOGIN')
 
+      get "/api/v1/token", headers: { email: "wrong_email", password: "wronger_password" }
+      result = JSON.parse(response.body)
+
+      expect(result).to eq(nil)
+    end
+
+    it "with invalid password" do  
+      user = create(:user, password: 'LOGIN')
+
+      get "/api/v1/token", headers: { email: user.email, password: "wronger_password" }
+      result = JSON.parse(response.body)
+
+      expect(result).to eq(nil)
     end
   end
 end
