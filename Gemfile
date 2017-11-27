@@ -45,7 +45,7 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'factory_girl'
+  gem 'factory_bot_rails'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'shoulda-matchers'

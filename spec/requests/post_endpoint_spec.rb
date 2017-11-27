@@ -76,7 +76,7 @@ RSpec.describe "post endpoints" do
 
       delete "/api/v1/posts/#{post.id}", headers: { token: token }
       new_post = Post.find_by(body: "oh what a feeling")
-      binding.pry
+
       expect(new_post).to eq(nil)
     end
   end
